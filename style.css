@@ -1,101 +1,133 @@
 body {
-    font-family: Arial, sans-serif;
-    background: #f7f7f7;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5;
     margin: 0;
     padding: 0;
+    color: #333;
 }
 
 h1, h2 {
     text-align: center;
-    color: #333;
+    color: #2c3e50;
+    margin-bottom: 10px;
 }
 
 form, #recap-section {
-    background: #fff;
-    max-width: 500px;
-    margin: 30px auto 20px auto;
-    padding: 20px 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    background: #ffffff;
+    max-width: 520px;
+    margin: 40px auto;
+    padding: 25px 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 label {
     display: block;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    color: #444;
+    margin-top: 20px;
+    margin-bottom: 6px;
+    color: #555;
+    font-weight: 500;
 }
 
 #filtre-categorie-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    margin: 20px auto;
+    gap: 12px;
+    margin: 25px auto;
     width: fit-content;
 }
+
 #filtre-categorie-container select {
-    min-width: 180px;
-    padding: 8px;
+    min-width: 200px;
+    padding: 10px;
     font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
 }
 
 input[type="text"],
 input[type="number"],
 #operation-form select {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
+    padding: 10px;
+    margin-bottom: 12px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 6px;
     box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+input:focus,
+select:focus {
+    border-color: #1976d2;
+    outline: none;
 }
 
 button {
     background: #1976d2;
     color: #fff;
     border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
+    padding: 10px 20px;
+    border-radius: 6px;
     cursor: pointer;
-    margin-right: 8px;
-    transition: background 0.2s;
+    margin-top: 10px;
+    transition: background 0.3s, transform 0.1s;
 }
 
 button:hover {
     background: #1565c0;
+    transform: scale(1.03);
 }
 
 #operations-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 #operations-table th, #operations-table td {
     border: 1px solid #e0e0e0;
-    padding: 10px;
+    padding: 12px 10px;
     text-align: center;
 }
 
 #operations-table th {
-    background: #f0f0f0;
-    color: #222;
+    background: #ecf0f1;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+#operations-table button {
+    margin: 4px;
 }
 
 #total-depenses {
-    margin-top: 20px;
+    margin-top: 25px;
     font-weight: bold;
     text-align: right;
     color: #1976d2;
+    font-size: 1.1rem;
 }
 
 @media (max-width: 600px) {
     form, #recap-section {
-        max-width: 95%;
-        padding: 10px;
+        max-width: 92%;
+        padding: 15px 20px;
     }
+
+    #filtre-categorie-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
     #operations-table th, #operations-table td {
-        padding: 6px;
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    button {
+        width: 100%;
+        margin: 8px 0;
     }
 }

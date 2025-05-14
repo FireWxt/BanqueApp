@@ -14,22 +14,26 @@ form.addEventListener("submit", function(event) {
     let operations = JSON.parse(localStorage.getItem("operations")) || [];
 
     if (editId) {
-
-        operations = operations.map(op =>
-            op.id == editId
-                ? { ...op, titre: titreValue, montant: parseFloat(montantValue), categorie: categorieValue }
-                : op
-        );
+        for (let i = 0; i < operations.length; i++) {
+            if (operations[i].id == editId) {
+                operations[i] = {
+                    ...operations[i],
+                    titre: titreValue,
+                    montant: parseFloat(montantValue),
+                    categorie: categorieValue
+                };
+                break;
+            }
+        }
         form.removeAttribute("data-edit-id");
-    } else {
-        
-        operations.push({
-            id: Date.now().toString(),
-            titre: titreValue,
-            montant: parseFloat(montantValue),
-            categorie: categorieValue
-        });
-    }
+            } else {
+                operations.push({
+                    id: Date.now().toString(),
+                    titre: titreValue,
+                    montant: parseFloat(montantValue),
+                    categorie: categorieValue
+                });
+}
 
     localStorage.setItem("operations", JSON.stringify(operations));
     form.reset();
